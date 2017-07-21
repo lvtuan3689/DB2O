@@ -31,6 +31,7 @@ public class MySQLConnection extends AbsConnection {
 
 	@Override
 	public void getConnection() {
+		closeConnection();
 		try {
 			connectionString = String.format("jdbc:mysql://%s/%s?user=%s&password=%s", host, dbname, username,
 					password);

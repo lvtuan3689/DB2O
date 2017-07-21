@@ -31,6 +31,15 @@ public abstract class AbsConnection {
 		loadDriver();
 	}
 
+	public void changeTo(String host, String username, String password, String port, String dbname) {
+		this.host = host;
+		this.username = username;
+		this.password = password;
+		this.port = port;
+		this.dbname = dbname;
+		getConnection();
+	}
+
 	public abstract void loadDriver();
 
 	public abstract void getConnection();
