@@ -2,5 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/mariadb-java-client-2.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/mssql-jdbc-6.2.1.jre8.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="lib" path="lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="lib/sqlite-jdbc-3.19.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
