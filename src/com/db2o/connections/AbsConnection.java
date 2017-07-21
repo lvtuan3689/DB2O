@@ -59,11 +59,11 @@ public abstract class AbsConnection {
 	 */
 	public boolean isClosed() {
 		try {
-			return connection != null && connection.isClosed();
+			return connection == null || connection.isClosed();
 		} catch (SQLException e) {
 			ErrorProcessor.process(this, e);
 		}
-		return true;
+		return false;
 	}
 
 	/**

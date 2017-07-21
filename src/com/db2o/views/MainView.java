@@ -16,6 +16,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 
 import com.db2o.connections.MySQLConnection;
@@ -55,7 +56,7 @@ public class MainView extends JFrame {
 		String host = txtHost.getText().trim();
 		String port = txtPort.getText().trim();
 		String username = txtUserName.getText().trim();
-		String password = txtPassword.getPassword() != null ? txtPassword.getPassword().toString().trim() : "";
+		String password = txtPassword.getPassword() != null ? new String(txtPassword.getPassword()) : "";
 		String dbName = txtSchema.getText().trim();
 		cbbSchemas.removeAllItems();
 		switch (connectionType) {
@@ -70,15 +71,14 @@ public class MainView extends JFrame {
 		if (mySQLConnection == null) {
 			mySQLConnection = new MySQLConnection(host, username, password, port, defaultDb);
 		} else {
-			mySQLConnection.closeConnection();
 			mySQLConnection.changeTo(host, username, password, port, defaultDb);
 		}
 		if (mySQLConnection.isClosed()) {
 			lblResult.setForeground(Color.RED);
-			lblResult.setText("Connection failure!");
+			lblResult.setText("Connect failure!");
 		} else {
 			lblResult.setForeground(Color.BLUE);
-			lblResult.setText("Connection successfull!");
+			lblResult.setText("Connect successfull!");
 		}
 		if (isTesting) {
 			System.out.println("Testing...");
@@ -219,6 +219,7 @@ public class MainView extends JFrame {
 		panel_2.add(btnConnect);
 
 		lblResult = new JLabel("");
+		lblResult.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblResult.setForeground(new Color(0, 0, 255));
 		lblResult.setBounds(10, 313, 329, 14);
 		contentPane.add(lblResult);
