@@ -34,7 +34,6 @@ public class MainView extends JFrame {
 	private JPasswordField txtPassword;
 	private JTextField txtPort;
 	private JTextField txtSchema;
-	private JPanel pnlMySQL = null;
 	private JPanel pnlConnectionInfo;
 	private JComboBox<String> cbbSchemas = null;
 	private JLabel lblResult = null;
@@ -166,7 +165,7 @@ public class MainView extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JComboBox<String> cbbConnectionType = new JComboBox();
+		JComboBox<String> cbbConnectionType = new JComboBox<String>();
 		cbbConnectionType.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switchToConnectionType(cbbConnectionType.getSelectedItem().toString());
@@ -189,7 +188,7 @@ public class MainView extends JFrame {
 		panel_1.setBounds(10, 355, 329, 42);
 		contentPane.add(panel_1);
 
-		cbbSchemas = new JComboBox();
+		cbbSchemas = new JComboBox<String>();
 		cbbSchemas.setBounds(10, 11, 309, 20);
 		panel_1.add(cbbSchemas);
 
@@ -273,7 +272,7 @@ public class MainView extends JFrame {
 		panel_5.setBounds(349, 28, 425, 299);
 		contentPane.add(panel_5);
 
-		JList list = new JList();
+		JList<String> list = new JList<String>();
 		panel_5.add(list);
 		for (String type : CONNCETION_TYPE) {
 			cbbConnectionType.addItem(type);
